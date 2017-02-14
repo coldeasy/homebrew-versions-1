@@ -91,6 +91,8 @@ class Protobuf260 < Formula
       site_packages = "lib/python2.7/site-packages"
       pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
       (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
+      # pyext init is missing from the 2.6 protobuf package
+      touch libexec/site_packages/"google/protobuf/pyext/__init__.py"
     end
   end
 
